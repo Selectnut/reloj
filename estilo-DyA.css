@@ -1,0 +1,60 @@
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+}
+
+.digital-clock {
+  font-size: 3em;
+}
+
+.analog-clock {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 2px solid black;
+}
+
+.hour, .minute, .second {
+  position: absolute;
+  width: 50%;
+  height: 2px;
+  background-color: black;
+  transform-origin: 100%;
+}
+
+.hour {
+  top: 50%;
+  left: 1%;
+  transform: rotate(90deg);
+}
+
+.minute {
+  top: 50%;
+  left: 1%;
+  transform: rotate(180deg);
+}
+
+.second {
+  top: 50%;
+  left: 1%;
+  transform: rotate(270deg);
+}
+
+.marking {
+  position: absolute;
+  width: 2px;
+  height: 10%;
+  background-color: black;
+  top: 0;
+  left: 50%;
+  transform-origin: 50% 100%;
+}
+
+@for $i from 1 through 12 {
+  .marking:nth-child(#{$i}) {
+    transform: rotate(calc(#{$i} * 30deg));
+  }
+}
